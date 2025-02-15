@@ -1,0 +1,25 @@
+// Шрифт normal Montserrat
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('~/static/fonts/Montserrat-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('~/static/fonts/Montserrat-Medium.woff2') format('woff2'),
+      url('~/static/fonts/Montserrat-Medium.woff') format('woff');
+}
+// Шрифт bold Montserrat
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('~/static/fonts/Montserrat-Bold.woff2') format('woff2'),
+      url('~/static/fonts/Montserrat-Bold.woff') format('woff');
+}

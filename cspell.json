@@ -1,0 +1,9 @@
+{
+  "ignoreWords": ["tanstack", "nocheck", "typesdefs", "Behaviour"],
+
+  "dictionaries": [],
+
+  "ignoreRegExpList": [],
+
+  "ignorePaths": []
+}

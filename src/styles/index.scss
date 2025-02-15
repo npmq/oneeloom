@@ -1,0 +1,13 @@
+/* Общее масштабирование 1rem - 10px */
+html {
+  font-size: var(--global-font-size-root);
+}
+
+#root {
+  width: var(--global-width-full);
+  min-width: var(--global-min-width-default);
+  height: var(--global-height-viewport);
+
+  font-family: var(--global-font-stack);
+  font-size: var(--global-font-size);
+}

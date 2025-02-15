@@ -1,0 +1,58 @@
+@mixin flex() {
+  display: flex;
+  align-items: center;
+}
+
+// Стили для неактивного элемента
+@mixin disable() {
+  background-color: #fdfdfd !important;
+  border-color: #cfcfcf !important;
+  color: #a8a8a8 !important;
+}
+
+// Стили для warn сообщений
+@mixin warnMessageInput() {
+  font-size: 1.2rem;
+  color: $attn-color;
+  text-align: center;
+  padding: .5rem 0;
+}
+// Ограничение для модальных form окон
+@mixin modalForm() {
+  max-width: 35rem;
+  min-width: 26rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+// Главные стили для button на страничках
+@mixin mainButton() {
+  background-color: $btn-color;
+  display: block;
+  color: #ffffff;
+  width: 80%;
+  max-width: 30rem;
+  height: 4rem;
+  line-height: 4rem;
+  font-size: 1.6rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+// Стиль для button submit в формах
+@mixin submitButton() {
+  background-color: $btn-color;
+  width: 100%;
+  height: 4rem;
+  display: block;
+  font-size: 1.6rem;
+  color: #ffffff;
+  margin: 2rem 0;
+}
+
+// Стили для переполнения текста
+@mixin overflowText() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
