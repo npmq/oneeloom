@@ -8,10 +8,7 @@ import reactRefreshPlugin from 'eslint-plugin-react-refresh'
 
 export default [
   {
-    // Применяем настройки ко всем JavaScript и TypeScript файлам
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
-
-    // Настройки парсера и языка
     languageOptions: {
       parser: typescriptParser,
       parserOptions: {
@@ -22,8 +19,6 @@ export default [
         },
       },
     },
-
-    // Настройки плагинов
     plugins: {
       '@typescript-eslint': typescriptPlugin,
       react: reactPlugin,
@@ -33,28 +28,17 @@ export default [
         prettierPluginRecommended.plugins?.prettier ||
         require('eslint-plugin-prettier'),
     },
-
-    // Настройки для React
     settings: {
       react: {
-        version: 'detect', // Автоматически определяет версию React
+        version: 'detect',
       },
     },
-
-    // Правила ESLint
     rules: {
-      // Настройки для React
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
-
-      // Настройки для React Hooks
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
-
-      // Настройки для React Refresh
       'react-refresh/only-export-components': 'warn',
-
-      // Настройки для TypeScript
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
