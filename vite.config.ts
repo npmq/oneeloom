@@ -6,6 +6,7 @@ import { AliasConfig } from './src/vite/AliasConfig'
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
+    host: true,
     port: 4000,
   },
   plugins: [reactVite(), TanStackRouterVite({})],
