@@ -51,4 +51,4 @@ jobs:
       #    context: ./api
       #    file: ./api/Dockerfile
       #    push: true
-      #    tags: ${{ secrets.DOCKERHUB_USERNAME }}/your-api:latest
+      #    tags: project-name/your-api:latest
