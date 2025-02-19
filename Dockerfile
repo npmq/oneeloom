@@ -20,8 +20,8 @@ RUN yarn build
 FROM nginx:stable-alpine
 
 # Set environment variables
-# ENV API_URL=http://api.example.com
 ENV PORT=80
+# ENV API_URL=http://api.example.com
 
 # Copy the production build from the builder stage to the Nginx html directory
 COPY --from=builder /app/dist /usr/share/nginx/html
