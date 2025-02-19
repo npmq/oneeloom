@@ -9,54 +9,43 @@ on:
 jobs:
   test_and_build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20]
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js environment (Node 20)
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          node-version: 20
 
-      - name: Install dependencies
-        run: yarn install
+      - name: Install project dependencies
+        run: yarn install --frozen-lockfile
 
-      - name: Run Lint
+      - name: Run ESLint for code linting
         run: yarn lint
 
-      - name: Run Tests
-        run: yarn test
-
-      # - name: Run Lint Fix
+      # - name: Auto-fix ESLint issues
       #   run: yarn lint:fix
 
-  docker_build:
-    needs: test_and_build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Run unit tests with Vitest
+        run: yarn test
 
-      - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      - name: Build production version app
+        run: yarn build
 
-      - name: Login to DockerHub
+      - name: Build Docker image for oneeloom app
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/oneeloom .
+        env:
+          DOCKER_BUILDKIT: 1
+
+      - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build Docker Image
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: antqred/oneeloom:latest
+      - name: Push Docker image to Docker Hub
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/oneeloom
 
       # API Service Integration (example)
       # - name: Build API service integration
@@ -65,4 +54,4 @@ jobs:
       #    context: ./api
       #    file: ./api/Dockerfile
       #    push: true
-      #    tags: your-docker-hub-username/your-api:latest
+      #    tags: ${{ secrets.DOCKERHUB_USERNAME }}/your-api:latest
