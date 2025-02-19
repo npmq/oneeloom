@@ -24,9 +24,6 @@ jobs:
       - name: Run ESLint for code linting
         run: yarn lint
 
-      # - name: Auto-fix ESLint issues
-      #   run: yarn lint:fix
-
       - name: Run unit tests with Vitest
         run: yarn test
 
