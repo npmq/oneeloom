@@ -1,0 +1,169 @@
+// Общее маштабирование 1rem - 10px
+html {
+  font-size: 62.5%;
+}
+
+// Общие стили к body!
+body {
+  min-width: 32rem;
+  font-family: 'Montserrat';
+  font-size: 1.4rem;
+}
+
+// Общий контейнер для header main footer
+.container-body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Общий контент
+.main {
+  flex: 1 0 auto;
+
+  // Ограничение сетки для мобильной версии
+  &-wrapper {
+    padding: 2rem;
+  }
+}
+
+// Ограничение сетки.
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+//Общий overlay
+.overlay {
+  background-color: rgba(0, 0, 0, 0.575);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 19;
+}
+
+// Анимация текста warn в формах отправки
+.animate-text-warn {
+  animation: warn 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+}
+
+// Модальное окно slide top
+.modal-slide-top {
+  background-color: #ffffff;
+  box-shadow: 0 .5rem 1rem 0 $box-shadow;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: translateY(calc(-100% - 2rem));
+  transition: transform .3s;
+  text-align: center;
+  padding: 1rem;
+  z-index: 30;
+
+  &_active {
+    transform: translateY(0);
+  }
+}
+
+@keyframes warn {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+
+// Transitions общие стили компонентов-------------------------------------------
+
+// Дефолтный переход
+.dafault-enter-active, .default-leave-active {
+  transition: opacity .5s;
+}
+
+.default-enter, .default-leave-to {
+  opacity: 0;
+}
+
+// pages
+.page-enter-active, .page-leave-active {
+  transition: opacity .3s;
+}
+
+.page-enter, .page-leave-active {
+  opacity: 0;
+}
+
+//  overlay
+.overlay-enter-active, .overlay-leave-active {
+  transition: opacity .23s;
+}
+
+.overlay-enter, .overlay-leave-to {
+  opacity: 0;
+}
+
+// nav
+.nav-enter-active, .nav-leave-active {
+  transition: transform .23s;
+}
+
+.nav-enter, .nav-leave-to {
+  transform: translateX(-100%);
+}
+
+// modal slide top
+.slide-top-enter-active, .slide-top-leave-active {
+  transition: transform .2s;
+}
+
+.slide-top-enter, .slide-top-leave-to {
+  transform: translateY(-100%);
+}
+
+// modal slide right
+.slide-right-enter-active, .slide-right-leave-active {
+  transition: transform .2s;
+}
+
+.slide-right-enter, .slide-right-leave-to {
+  transform: translateX(100%);
+}
+
+// modal
+.modal-enter-active, .modal-leave-active {
+  transition: opacity .5s;
+}
+
+.modal-enter, .modal-leave-to {
+  opacity: 0;
+}
+
+// Warn message bottom
+.warn-bottom-enter-active, .warn-bottom-leave-active {
+  transition: transform .3s ease-out;
+}
+
+.warn-bottom-enter, .warn-bottom-leave-to {
+  transform: translateY(100%);
+}

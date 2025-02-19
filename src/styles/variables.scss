@@ -1,0 +1,38 @@
+:root {
+  // Global
+  --global-width-full: 100%;
+  --global-min-width-default: 32rem;
+  --global-height-full: 100%;
+  --global-height-viewport: 100vh;
+
+  --global-font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --global-font-size-root: 62.5%;
+  --global-font-size: 1.4rem;
+
+  --global-fill-color: #000000;
+  --global-border-radius: 0.5rem;
+
+  // Box Shadows
+  --box-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --box-shadow-medium: 0 3px 6px rgba(0, 0, 0, 0.15);
+  --box-shadow-dark: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+  // Overlay
+  --overlay-light: rgba(0, 0, 0, 0.5);
+
+  // Buttons
+  --button-width-base: 4rem;
+  --button-height-base: 4rem;
+
+  --button-text-sm: 1.2rem;
+
+  --button-bg-color-base: #3e6283;
+  --button-text-color-base: #ffffff;
+
+  // Header
+  --header-height-default: 4rem;
+}
+
+.desktop {
+  --global-min-width-default: 52rem;
+}

@@ -1,0 +1,224 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Electronics",
+      "url": "/category/electronics",
+      "children": [
+        {
+          "id": 2,
+          "name": "Smartphones",
+          "url": "/category/smartphones",
+          "parent": 1,
+          "children": [
+            {
+              "id": 3,
+              "name": "Apple",
+              "url": "/category/apple-smartphones",
+              "parent": 2
+            },
+            {
+              "id": 4,
+              "name": "Samsung",
+              "url": "/category/samsung-smartphones",
+              "parent": 2
+            },
+            {
+              "id": 5,
+              "name": "Xiaomi",
+              "url": "/category/xiaomi-smartphones",
+              "parent": 2
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "Laptops",
+          "url": "/category/laptops",
+          "parent": 1,
+          "children": [
+            {
+              "id": 7,
+              "name": "Apple MacBook",
+              "url": "/category/macbook",
+              "parent": 6
+            },
+            {
+              "id": 8,
+              "name": "Asus",
+              "url": "/category/asus-laptops",
+              "parent": 6
+            },
+            {
+              "id": 9,
+              "name": "Acer",
+              "url": "/category/acer-laptops",
+              "parent": 6
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "name": "Televisions",
+          "url": "/category/televisions",
+          "parent": 1,
+          "children": [
+            {
+              "id": 11,
+              "name": "Samsung",
+              "url": "/category/samsung-tvs",
+              "parent": 10
+            },
+            {
+              "id": 12,
+              "name": "LG",
+              "url": "/category/lg-tvs",
+              "parent": 10
+            },
+            {
+              "id": 13,
+              "name": "Sony",
+              "url": "/category/sony-tvs",
+              "parent": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Clothing",
+      "url": "/category/clothing",
+      "children": [
+        {
+          "id": 15,
+          "name": "Men's",
+          "url": "/category/men-clothing",
+          "parent": 14,
+          "children": [
+            {
+              "id": 16,
+              "name": "Outerwear",
+              "url": "/category/men-outerwear",
+              "parent": 15
+            },
+            {
+              "id": 17,
+              "name": "T-Shirts",
+              "url": "/category/men-t-shirts",
+              "parent": 15
+            },
+            {
+              "id": 18,
+              "name": "Jeans",
+              "url": "/category/men-jeans",
+              "parent": 15
+            }
+          ]
+        },
+        {
+          "id": 19,
+          "name": "Women's",
+          "url": "/category/women-clothing",
+          "parent": 14,
+          "children": [
+            {
+              "id": 20,
+              "name": "Dresses",
+              "url": "/category/women-dresses",
+              "parent": 19
+            },
+            {
+              "id": 21,
+              "name": "Skirts",
+              "url": "/category/women-skirts",
+              "parent": 19
+            },
+            {
+              "id": 22,
+              "name": "Blouses",
+              "url": "/category/women-blouses",
+              "parent": 19
+            }
+          ]
+        },
+        {
+          "id": 31,
+          "name": "Shoes",
+          "url": "/category/shoes",
+          "parent": 14,
+          "children": [
+            {
+              "id": 32,
+              "name": "Men's Shoes",
+              "url": "/category/men-shoes",
+              "parent": 31
+            },
+            {
+              "id": 33,
+              "name": "Women's Shoes",
+              "url": "/category/women-shoes",
+              "parent": 31
+            },
+            {
+              "id": 34,
+              "name": "Kids' Shoes",
+              "url": "/category/kids-shoes",
+              "parent": 31
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Sports and Leisure",
+      "url": "/category/sports-and-leisure",
+      "children": [
+        {
+          "id": 24,
+          "name": "Bicycles",
+          "url": "/category/bicycles",
+          "parent": 23
+        },
+        {
+          "id": 25,
+          "name": "Tourism",
+          "url": "/category/tourism",
+          "parent": 23
+        },
+        {
+          "id": 26,
+          "name": "Fitness",
+          "url": "/category/fitness",
+          "parent": 23
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Home and Garden",
+      "url": "/category/home-and-garden",
+      "children": [
+        {
+          "id": 28,
+          "name": "Furniture",
+          "url": "/category/furniture",
+          "parent": 27
+        },
+        {
+          "id": 29,
+          "name": "Tools",
+          "url": "/category/tools",
+          "parent": 27
+        },
+        {
+          "id": 30,
+          "name": "Garden Equipment",
+          "url": "/category/garden-equipment",
+          "parent": 27
+        }
+      ]
+    }
+  ]
+}

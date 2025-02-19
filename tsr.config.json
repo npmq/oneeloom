@@ -1,0 +1,5 @@
+{
+  "routesDirectory": "./src/pages",
+  "routeFileIgnorePrefix": "-",
+  "quoteStyle": "single"
+}

@@ -1,0 +1,31 @@
+.sidebar {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 100%;
+  background-color: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+.open {
+  transform: translateX(0);
+}
+
+.foo {
+  color: red;
+}
+
+.bar {
+  text-decoration: underline;
+}
+
+.tor {
+  font-weight: bold;
+}
+
+.myToggleClassActive {
+  font-size: 16px;
+}

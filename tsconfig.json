@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "plugins": [],
+    "baseUrl": "src",
+    "paths": {
+      "@config/*": ["@config/*"],
+      "@constants/*": ["@constants/*"],
+      "@contexts/*": ["@contexts/*"],
+      "@hooks/*": ["@hooks/*"],
+      "@redux/*": ["@redux/*"],
+      "@strategies/*": ["@strategies/*"],
+      "@typesdefs/*": ["@types/*"],
+      "@utils/*": ["@utils/*"],
+      "@states/*": ["@xstate/*"],
+      "@components/*": ["components/*"],
+      "@containers/*": ["components/@containers/*"],
+      "@atoms/*": ["components/atoms/*"],
+      "@molecules/*": ["components/molecules/*"],
+      "@organisms/*": ["components/organisms/*"],
+      "@layouts/*": ["components/layouts/*"],
+      "@templates/*": ["components/templates/*"],
+      "@icons/*": ["components/atoms/icons/*"],
+      "@base/*": ["components/molecules/base/*"],
+      "@pages/*": ["pages/*"],
+      "@styles/*": ["styles/*"]
+    },
+    // Настройки TanStack Router
+    // "routesDirectory": "./src/routes",
+    // "generatedRouteTree": "./src/routeTree.gen.ts",
+    // "routeFileIgnorePrefix": "-",
+    // "quoteStyle": "single",
+    // "experimental": {
+    //   "enableCodeSplitting": true
+    // },
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "declaration": true,
+    "outDir": "./dist"
+  },
+  "include": ["src", "vite.config.ts", "vitest.config.ts"],
+}
