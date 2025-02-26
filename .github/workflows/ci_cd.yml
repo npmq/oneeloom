@@ -49,8 +49,18 @@ jobs:
         run: |
           curl -X POST "${{ secrets.WEBHOOK_URL }}" \
             -H "Content-Type: application/json" \
-            -d "{\"workflow_run\": {\"status\": \"completed\", \"name\": \"Frontend CI/CD\", \"html_url\": \"${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\", \"conclusion\": \"success\"}, \"repository\": {\"full_name\": \"${{ github.repository }}\"}}"
-
+            -d @- <<EOF
+          {
+            "event": "ci_cd_notification",
+            "status": "success",
+            "repository": "${{ github.repository }}",
+            "run_id": "${{ github.run_id }}",
+            "workflow": "${{ github.workflow }}",
+            "commit_url": "${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}",
+            "docker_image": "${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest",
+            "message": "Build and deployment completed successfully! 🚀"
+          }
+          EOF
       # API Service Integration (example)
       # - name: Build API service integration
       #  uses: docker/build-push-action@v4
