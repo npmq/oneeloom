@@ -44,6 +44,23 @@ jobs:
       - name: Push Docker image to Docker Hub
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/oneeloom
 
+      - name: Notify Telegram Bot about successful build
+        if: ${{success()}}
+        run: |
+          curl -X POST ${{ secrets.WEBHOOK_URL }} \
+            -H "Content-Type: application/json" \
+            -d '{
+                  "workflow_run": {
+                    "status": "completed",
+                    "name": "Frontend CI/CD",
+                    "html_url": "'"${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"'",
+                    "conclusion": "success"
+                  },
+                  "repository": {
+                    "full_name": "'"${{ github.repository }}"'"
+                  }
+                }
+
       # API Service Integration (example)
       # - name: Build API service integration
       #  uses: docker/build-push-action@v4
