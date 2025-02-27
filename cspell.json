@@ -1,5 +1,5 @@
 {
-  "ignoreWords": ["oneeloom", "vitest", "tanstack", "nocheck", "typesdefs", "Behaviour", "DOCKERHUB_USERNAME", "DOCKERHUB_TOKEN", "BUILDKIT"],
+  "ignoreWords": ["oneeloom", "vitest", "tanstack", "nocheck", "typesdefs", "Behaviour", "DOCKERHUB_USERNAME", "DOCKERHUB_TOKEN", "BUILDKIT", "elif"],
 
   "dictionaries": [],
 
