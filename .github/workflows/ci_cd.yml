@@ -68,7 +68,7 @@ jobs:
           {
             "status": "success",
             "repository": "${{ github.repository }}",
-            "branch": "${{ github.ref_name }}"
+            "branch": "${{ github.ref_name }}",
             "workflow": "${{ github.workflow }}",
             "commit_url": "${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}",
             "message": "Build and deployment completed successfully! 🚀"
@@ -103,7 +103,7 @@ jobs:
           {
             "status": "failure",
             "repository": "${{ github.repository }}",
-            "branch": "${{ github.ref_name }}"
+            "branch": "${{ github.ref_name }}",
             "workflow": "${{ github.workflow }}",
             "commit_url": "${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}",
             "failed_step": "$FAILED_STEP",
