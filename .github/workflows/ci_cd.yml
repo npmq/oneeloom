@@ -67,6 +67,7 @@ jobs:
             -d @- <<EOF
           {
             "status": "success",
+            "timestamp": "${{ github.run_started_at }}",
             "repository": "${{ github.repository }}",
             "branch": "${{ github.ref_name }}",
             "workflow": "${{ github.workflow }}",
@@ -102,6 +103,7 @@ jobs:
             -d @- <<EOF
           {
             "status": "failure",
+            "timestamp": "${{ github.run_started_at }}",
             "repository": "${{ github.repository }}",
             "branch": "${{ github.ref_name }}",
             "workflow": "${{ github.workflow }}",
