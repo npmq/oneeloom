@@ -20,7 +20,6 @@ jobs:
           echo "Event name: ${{ github.event_name }}"
           echo "Run ID: ${{ github.run_id }}"
           echo "Run number: ${{ github.run_number }}"
-          echo "Run started at: ${{ github.run_started_at }}"
 
       # Step 3: Setup Node.js environment
       - name: Setup Node.js environment (Node 22)
@@ -70,12 +69,11 @@ jobs:
       - name: Get current timestamp
         id: get_timestamp
         run: |
-          echo "timestamp=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
+          echo "timestamp=$(date -u +'%d %b %Y, %H:%M:%S UTC')" >> $GITHUB_OUTPUT
 
       # Step 12: Debug github context
       - name: Debug github context
         run: |
-          echo "Run started at: ${{ github.run_started_at }}"
           echo "Repository: ${{ github.repository }}"
           echo "Branch: ${{ github.ref_name }}"
           echo "Workflow: ${{ github.workflow }}"
