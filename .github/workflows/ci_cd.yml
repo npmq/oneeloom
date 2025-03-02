@@ -14,51 +14,76 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Setup Node.js environment
+      # Step 2: Debug event info
+      - name: Debug event info
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Run ID: ${{ github.run_id }}"
+          echo "Run number: ${{ github.run_number }}"
+          echo "Run started at: ${{ github.run_started_at }}"
+
+      # Step 3: Setup Node.js environment
       - name: Setup Node.js environment (Node 22)
         uses: actions/setup-node@v3
         with:
           node-version: 22
 
-      # Step 3: Install project dependencies
+      # Step 4: Install project dependencies
       - name: Install project dependencies
         run: yarn install --frozen-lockfile
 
-      # Step 4: Run ESLint for code linting
+      # Step 5: Run ESLint for code linting
       - name: Run ESLint for code linting
         id: lint
         run: yarn lint
 
-      # Step 5: Run unit tests with Vitest
+      # Step 6: Run unit tests with Vitest
       - name: Run unit tests with Vitest
         id: test
         run: yarn test
 
-      # Step 6: Build production version app
+      # Step 7: Build production version app
       - name: Build production version app
         id: build
         run: yarn build
 
-      # Step 7: Build Docker image
+      # Step 8: Build Docker image
       - name: Build Docker image for oneeloom app
         id: docker_build
         run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/oneeloom .
         env:
           DOCKER_BUILDKIT: 1
 
-      # Step 8: Log in to Docker Hub
+      # Step 9: Log in to Docker Hub
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # Step 9: Push Docker image to Docker Hub
+      # Step 10: Push Docker image to Docker Hub
       - name: Push Docker image to Docker Hub
         id: docker_push
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/oneeloom
 
-      # Step 10: Notify Telegram Bot about successful build
+      # Step 11:
+      - name: Get current timestamp
+        id: get_timestamp
+        run: |
+          echo "timestamp=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> $GITHUB_OUTPUT
+
+      # Step 12: Debug github context
+      - name: Debug github context
+        run: |
+          echo "Run started at: ${{ github.run_started_at }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Workflow: ${{ github.workflow }}"
+          echo "Commit SHA: ${{ github.sha }}"
+          echo "Timestamp: ${{ steps.get_timestamp.outputs.timestamp }}"
+          echo "Server URL: ${{ github.server_url }}"
+
+      # Step 13: Notify Telegram Bot about successful build
       - name: Notify Telegram Bot about successful build
         if: ${{ success() }}
         run: |
@@ -67,16 +92,16 @@ jobs:
             -d @- <<EOF
           {
             "status": "success",
-            "timestamp": "${{ github.run_started_at }}",
+            "timestamp": "${{ steps.get_timestamp.outputs.timestamp }}",
             "repository": "${{ github.repository }}",
             "branch": "${{ github.ref_name }}",
             "workflow": "${{ github.workflow }}",
             "commit_url": "${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}",
-            "message": "Build and deployment completed successfully! 🚀"
+            "message": "Build and deployment completed successfully!"
           }
           EOF
 
-      # Step 11: Notify Telegram Bot about failed build
+      # Step 14: Notify Telegram Bot about failed build
       - name: Notify Telegram Bot about failed build
         if: ${{ failure() }}
         run: |
@@ -103,13 +128,13 @@ jobs:
             -d @- <<EOF
           {
             "status": "failure",
-            "timestamp": "${{ github.run_started_at }}",
+            "timestamp": "${{ steps.get_timestamp.outputs.timestamp }}",
             "repository": "${{ github.repository }}",
             "branch": "${{ github.ref_name }}",
             "workflow": "${{ github.workflow }}",
             "commit_url": "${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}",
             "failed_step": "$FAILED_STEP",
-            "message": "Build or deployment failed! ❌"
+            "message": "Build or deployment failed!"
           }
           EOF
 
