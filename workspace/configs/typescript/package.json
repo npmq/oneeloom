@@ -1,0 +1,8 @@
+{
+  "name": "@oneeloom/tsconfig",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./configs/base.json": "./configs/base.json"
+  }
+}

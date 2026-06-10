@@ -1,0 +1,54 @@
+{
+  "name": "oneeloom",
+  "description": "Open-core TypeScript platform monorepo for contract-driven services, safe configuration, diagnostics, and modular runtime architecture.",
+  "keywords": [
+    "oneeloom",
+    "typescript",
+    "bun",
+    "platform",
+    "monorepo",
+    "open-core",
+    "backend",
+    "service-architecture",
+    "modular-architecture",
+    "runtime-services",
+    "contracts",
+    "contract-driven",
+    "configuration",
+    "environment",
+    "logging",
+    "diagnostics",
+    "safe-by-design"
+  ],
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.3.14",
+  "workspaces": [
+    "core/modules/*",
+    "core/tools/*",
+    "core/integrations/*",
+    "core/composition/*",
+    "services/*",
+    "workspace/configs/*",
+    "workspace/tooling/*",
+    "workspace/templates/*"
+  ],
+  "scripts": {
+    "check": "biome check . && tsc -p tsconfig.json --noEmit && bun run check:packages",
+    "check:packages": "bunx tsc -p core/tools/report/tsconfig.json --noEmit && bunx tsc -p core/modules/env/tsconfig.json --noEmit",
+    "format": "biome format --write .",
+    "lint": "biome check .",
+    "dev": "echo \"define dev later\"",
+    "test": "echo \"define tests later\"",
+    "create:service": "./scripts/setup/create-service.sh"
+  },
+  "devDependencies": {
+    "@oneeloom/tsconfig": "workspace:*",
+    "@biomejs/biome": "^2.4.16",
+    "@types/bun": "^1.3.14",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "zenums": "^0.1.6"
+  }
+}

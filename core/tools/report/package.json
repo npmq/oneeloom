@@ -1,0 +1,14 @@
+{
+  "name": "@oneeloom/report",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "zenums": "^0.1.6"
+  },
+  "devDependencies": {
+    "@oneeloom/tsconfig": "workspace:*"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "@oneeloom/public-api",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./contracts": "./contracts/index.ts",
+    "./configs": "./configs/index.ts"
+  },
+  "scripts": {
+    "dev": "echo \"define dev later\"",
+    "build": "echo \"define build later\"",
+    "test": "echo \"define tests later\"",
+    "check": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@oneeloom/env": "workspace:*",
+    "@oneeloom/report": "workspace:*",
+    "zenums": "^0.1.6"
+  },
+  "devDependencies": {
+    "@oneeloom/tsconfig": "workspace:*"
+  }
+}

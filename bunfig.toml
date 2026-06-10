@@ -1,0 +1,17 @@
+# Disable Bun automatic .env loading.
+# Environment input must pass through the Oneeloom env module boundary.
+env = false
+
+# Keep Bun output conservative by default.
+logLevel = "warn"
+
+# Disable telemetry and anonymous crash reports.
+telemetry = false
+
+[test]
+# Ignore generated and coverage zones during Bun test discovery.
+pathIgnorePatterns = [
+  "dist/**",
+  "build/**",
+  "coverage/**",
+]

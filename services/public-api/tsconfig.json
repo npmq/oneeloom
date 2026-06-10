@@ -1,0 +1,8 @@
+{
+  "extends": "@oneeloom/tsconfig/configs/base.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "include": ["src", "tests", "contracts", "configs"],
+  "exclude": ["dist", "node_modules"]
+}

@@ -1,0 +1,5 @@
+{
+  "extends": "@oneeloom/tsconfig/configs/base.json",
+  "include": [],
+  "references": []
+}
