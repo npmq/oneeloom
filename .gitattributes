@@ -1,0 +1,3 @@
+# Keep repository automation scripts out of GitHub language statistics.
+# Scripts are repository tooling and should not define the platform language.
+scripts/**/*.sh linguist-detectable=false
